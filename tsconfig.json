@@ -4,7 +4,7 @@
       "module": "commonjs",
       "strictNullChecks": true,
       "esModuleInterop": true,
-      "jsx": "react-jsx"
+      "jsx": "react"
   },
   "include": [
       "src"
