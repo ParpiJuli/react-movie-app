@@ -516,3 +516,11 @@ video {
 .contents {
   display: contents;
 }
+
+.p-24 {
+  padding: 6rem;
+}
+
+.outline {
+  outline-style: solid;
+}
