@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { MovieDetails, MovieDetailsProps } from './movieDetails';
+import { MovieDetails, MovieDetailsProps } from '../movieDetails/movieDetails';
 
 interface MovieCardProps extends MovieDetailsProps{
   moviePoster: string,
@@ -26,8 +26,10 @@ export const MovieCard = ({
   const containerClass = `
     hover:drop-shadow-xl
     hover:origin-top-right
-    p-5
     flex
+    gap-2
+    md:gap-5
+    md:my-5
     flex-col
     md:flex-row
     flex-auto
@@ -37,7 +39,7 @@ export const MovieCard = ({
   return (
     <div className={containerClass}>
       <img
-        className='rounded-xl flex my-auto md:w-[300px] md:h-[300px]'
+        className='rounded-xl flex m-auto w-[230px] h-[300px]'
         src={moviePoster}
         alt={altText}
         {...props}

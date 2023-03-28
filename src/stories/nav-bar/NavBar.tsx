@@ -5,14 +5,12 @@ import map from 'lodash/map';
 interface ButtonProps {
   isStory?: boolean;
   backgroundColor?: string;
-  size?: 'small' | 'medium' | 'large';
   label: string;
   onClick?: () => void;
 }
 
 export const NavBar = ({
   isStory = false,
-  size = 'medium',
   backgroundColor,
   label,
   ...props
@@ -34,10 +32,6 @@ export const NavBar = ({
     {
       href: '/thriller',
       name: 'Thriller'
-    },
-    {
-      href: '/storybook',
-      name: 'Storybook'
     }
   ];
   const Items = map(itemsMenu, (item, index) => {
@@ -47,7 +41,7 @@ export const NavBar = ({
   });
 
   return (
-    <div className='flex overflow-x-auto overflow-scroll justify-evenly'>
+    <div className='flex overflow-x-auto overflow-scroll justify-center'>
       {Items}
     </div>
   )
