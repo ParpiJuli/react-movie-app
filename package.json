@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --open --hot --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@babel/core": "^7.21.3",
@@ -14,6 +16,7 @@
     "babel-loader": "^9.1.2",
     "html-webpack-plugin": "^5.5.0",
     "react": "^18.2.0",
+    "react-docgen-typescript-plugin": "^1.0.5",
     "react-dom": "^18.2.0",
     "typescript": "^5.0.2",
     "webpack": "^5.76.3",
@@ -22,6 +25,14 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.21.0",
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-webpack5": "^6.5.16",
+    "@storybook/manager-webpack5": "^6.5.16",
+    "@storybook/react": "^6.5.16",
+    "@storybook/testing-library": "^0.0.13",
     "@types/react": "^18.0.30",
     "@types/react-dom": "^18.0.11",
     "ts-loader": "^9.4.2",
