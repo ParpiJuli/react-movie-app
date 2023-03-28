@@ -521,6 +521,10 @@ video {
   padding: 6rem;
 }
 
+.p-20 {
+  padding: 5rem;
+}
+
 .outline {
   outline-style: solid;
 }
