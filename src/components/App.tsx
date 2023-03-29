@@ -4,6 +4,7 @@ import { QueryClientProvider, QueryClient } from 'react-query';
 import { HomePage } from '../stories/pages/homePage/homePage';
 import { GenrePage } from '../stories/pages/genrePage/genrePage';
 import { DetailsPage } from '../stories/pages/detailsPage/detailsPage';
+import '../../src/tailwind-input.css';
 
 export default function App() {
   const queryClient = new QueryClient;

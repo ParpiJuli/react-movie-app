@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     plugins: [
         new HTMLWebpackPlugin({
-            template: './src/index.html'
+            template: './dist/index.html'
         }),
         new MiniCssExtractPlugin({
             filename:"tailwind-input.css",
@@ -30,15 +30,21 @@ module.exports = {
                 use: ['ts-loader']
             },
             {
-                test:/\.css$/,
-                use:[
-                    "css-loader",
-                    // "postcss-loader"
-                ]
-            }
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader', 'postcss-loader'],
+            },
         ]
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.jsx', '.js']
-    }
-}
+    },
+    devServer: {
+        port: '5000',
+        static: {
+            directory: path.join(__dirname, 'dist'),
+        },
+        open: true,
+        hot: true,
+        liveReload: true,
+    },
+};
