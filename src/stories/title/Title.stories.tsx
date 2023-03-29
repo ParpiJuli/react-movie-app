@@ -6,7 +6,7 @@ import { Title } from './Title';
 export default {
   title: 'Text components/Title',
   component: Title,
-  argTypes: {},
+  argTypes: {}
 } as ComponentMeta<typeof Title>;
 
 const Template: ComponentStory<typeof Title> = (args) => <Title {...args} />;
@@ -14,7 +14,7 @@ const Template: ComponentStory<typeof Title> = (args) => <Title {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
-  label: 'Lorem Ipsum',
+  label: 'Lorem Ipsum'
 };
 
 export const Secondary = Template.bind({});

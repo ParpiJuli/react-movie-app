@@ -1,4 +1,4 @@
-import { GenreType } from "../types/Movies";
+import { GenreType } from '../types/Movies';
 import map from 'lodash/map';
 
 export const getGenresName = (genres?: GenreType[]) => {

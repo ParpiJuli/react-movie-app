@@ -7,8 +7,8 @@ export default {
   title: 'Header/Header',
   component: Header,
   parameters: {
-    layout: 'fullscreen',
-  },
+    layout: 'fullscreen'
+  }
 } as ComponentMeta<typeof Header>;
 
 const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
@@ -16,5 +16,5 @@ const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   title: 'App Name',
-  isDemo: true,
+  isDemo: true
 };

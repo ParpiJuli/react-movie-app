@@ -1,5 +1,5 @@
 export const getAverage = (voteAverage?: number) => {
-  if(!voteAverage) {
+  if (!voteAverage) {
     return null;
   }
   return Math.floor(voteAverage);

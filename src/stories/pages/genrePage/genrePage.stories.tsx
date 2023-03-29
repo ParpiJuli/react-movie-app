@@ -6,13 +6,13 @@ export default {
   title: 'Pages/Genre Page',
   component: GenrePage,
   parameters: {
-    layout: 'fullscreen',
-  },
+    layout: 'fullscreen'
+  }
 } as ComponentMeta<typeof GenrePage>;
 
 const Template: ComponentStory<typeof GenrePage> = (args) => <GenrePage {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  isDemo: true,
+  isDemo: true
 };

@@ -1,4 +1,4 @@
-const process = require('process')
+const process = require('process');
 
 const API_KEY = process.env.REACT_APP_API_URL || 'd1631449efef72d4e1ac38a232e1daa8&';
 const baseAPi = 'https://api.themoviedb.org/3';
