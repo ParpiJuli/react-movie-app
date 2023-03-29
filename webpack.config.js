@@ -33,6 +33,19 @@ module.exports = {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader', 'postcss-loader'],
             },
+            {
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                use: [
+                  'file-loader',
+                  {
+                    loader: 'image-webpack-loader',
+                    options: {
+                      bypassOnDebug: true,
+                      disable: true,
+                    },
+                  },
+                ],
+            }
         ]
     },
     resolve: {

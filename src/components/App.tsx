@@ -10,13 +10,13 @@ export default function App() {
   const queryClient = new QueryClient;
   	return (
       <QueryClientProvider client={queryClient}>
-        <HashRouter>
+        <BrowserRouter>
             <Routes>
               <Route path="/" Component={HomePage} />
               <Route path="/:genre" Component={GenrePage} />
               <Route path="/movies/:id" Component={DetailsPage} />
             </Routes>
-        </HashRouter>
+        </BrowserRouter>
       </QueryClientProvider>
   	);
 }

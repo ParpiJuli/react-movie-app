@@ -9,10 +9,11 @@ import { useQuery } from 'react-query';
 import { QueryResponseType } from '../../../types/Queries';
 import { Title } from '../../title/Title';
 import { useParams } from 'react-router-dom';
+import { ErrorPage } from '../errorPage/errorPage';
 
 export const GenrePage: React.VFC = ({isDemo=false}: {isDemo: boolean}) => {
   const renderPage = (movies, genre?) => (
-    <PageLayout>
+    <PageLayout isDemo={isDemo}>
       <div className='my-20'>
         <Title label={`${genre ? `${genre} films` : 'Films by genre'}`} primary={false}/>
         <MoviesCardContainer movies={movies} isDemo={isDemo} />
@@ -49,7 +50,7 @@ export const GenrePage: React.VFC = ({isDemo=false}: {isDemo: boolean}) => {
   }
 
   if (isError) {
-    return <span>Error: {error?.message}</span>;
+    return <ErrorPage error={error} />;
   }
 
   return renderPage(data.results, currentGenre?.name)

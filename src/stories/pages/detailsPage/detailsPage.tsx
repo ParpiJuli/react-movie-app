@@ -13,10 +13,11 @@ import { useQuery } from 'react-query';
 import { QueryResponseType } from '../../../types/Queries';
 import { Title } from '../../title/Title';
 import { useParams } from 'react-router-dom';
+import { ErrorPage } from '../errorPage/errorPage';
 
 export const DetailsPage: React.VFC = ({isDemo=false}: any) => {
   const renderPage = (movie, movies, genre?) => (
-    <PageLayout>
+    <PageLayout isDemo={isDemo}>
       <div className='my-20'>
         <MovieCard 
           moviePoster={getMoviePoster(movie.poster_path)}
@@ -64,7 +65,7 @@ export const DetailsPage: React.VFC = ({isDemo=false}: any) => {
   }
 
   if (isError || !id || isNil(data)) {
-    return <span>Error: {error?.message}</span>;
+    return <ErrorPage error={error} />;
   }
 
   return renderPage(data, suggestedMovies?.results, data?.genres[0].name)

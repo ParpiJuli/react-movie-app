@@ -16,4 +16,5 @@ const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   title: 'App Name',
+  isDemo: true,
 };

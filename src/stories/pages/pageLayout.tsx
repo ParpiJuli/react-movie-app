@@ -1,22 +1,15 @@
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, ReactComponentElement, ReactElement, ReactNode } from 'react';
 import { Header } from '../header/Header';
-import { NavBar } from '../nav-bar/NavBar';
-// import HeaderImage from '../assets/headerBackgroundImage.jpg'
 
-export const PageLayout = ({children, displayImage = false
-}: any) => {
-  const containerClass = `
-    container
-    flex
-    mx-auto
-    justify-center
-  `;
-
+type LayoutProps = {
+  children: string | JSX.Element | JSX.Element[] | any,
+  isDemo?: boolean,
+}
+export const PageLayout = ({children, isDemo}: LayoutProps) => {
   return (
     <div className='bg-neutral'>
-      <Header title='- Movie App -' />
-      {displayImage && (<img src={''} className='drop-shadow-xl'/>)}
-      <div className={containerClass}>
+      <Header title='- Movie App -' isDemo={isDemo} />
+      <div className='container flex mx-auto justify-center'>
         {children}
       </div>
     </div>
