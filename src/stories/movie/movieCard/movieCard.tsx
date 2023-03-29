@@ -1,19 +1,18 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
 import { MovieDetails, MovieDetailsProps } from '../movieDetails/movieDetails';
 
-interface MovieCardProps extends MovieDetailsProps{
-  moviePoster: string,
-  altText: string,
-  title: string,
-  description: string,
+interface MovieCardProps extends MovieDetailsProps {
+  moviePoster: string;
+  altText: string;
+  title: string;
+  description: string;
 }
 
 export const MovieCard = ({
-  moviePoster='https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg',
-  altText='movie-poster',
-  title='',
-  description='',
+  moviePoster = 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg',
+  altText = 'movie-poster',
+  title = '',
+  description = '',
   year,
   category,
   categoryDetails,
@@ -22,7 +21,6 @@ export const MovieCard = ({
   voteCount,
   ...props
 }: MovieCardProps) => {
-
   const containerClass = `
     hover:drop-shadow-xl
     hover:origin-top-right
@@ -39,7 +37,7 @@ export const MovieCard = ({
   return (
     <div className={containerClass}>
       <img
-        className='rounded-xl flex m-auto md:mx-0 w-[230px] h-[300px]'
+        className="rounded-xl flex m-auto md:mx-0 w-[230px] h-[300px]"
         src={moviePoster}
         alt={altText}
         {...props}
@@ -56,6 +54,6 @@ export const MovieCard = ({
       />
     </div>
   );
-}
+};
 
 export default MovieCard;

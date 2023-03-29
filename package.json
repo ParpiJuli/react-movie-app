@@ -10,7 +10,11 @@
     "watch:storybook": "start-storybook -p 6006",
     "build:tailwind": "npx tailwindcss -i ./src/tailwind-input.css -o ./dist/output.css",
     "build-storybook": "yarn build:tailwind && build-storybook",
-    "watch:tailwind": "npx tailwindcss -i ./src/tailwind-input.css -o ./dist/output.css --watch"
+    "watch:tailwind": "npx tailwindcss -i ./src/tailwind-input.css -o ./dist/output.css --watch",
+    "prettier:check": "prettier --check 'src/**/*.{tsx,ts,json,js}'",
+    "prettier:fix": "prettier --write 'src/**/*.{tsx,ts,json,js}'",
+    "lint:check": "eslint 'src/**/*.tsx'",
+    "lint:fix": "eslint 'src/**/*.{tsx,ts,js}' --fix"
   },
   "dependencies": {
     "@babel/core": "^7.21.3",
@@ -20,10 +24,13 @@
     "autoprefixer": "^10.4.14",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "image-webpack-loader": "^8.1.0",
     "mini-css-extract-plugin": "^2.7.5",
     "postcss": "^8.4.21",
     "postcss-loader": "^7.1.0",
+    "prettier": "^2.8.7",
     "react": "^18.2.0",
     "react-docgen-typescript-plugin": "^1.0.5",
     "react-dom": "^18.2.0",
@@ -49,7 +56,15 @@
     "@storybook/testing-library": "^0.0.13",
     "@types/react": "^18.0.30",
     "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
     "concurrently": "^7.6.0",
+    "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "ts-loader": "^9.4.2",
     "webpack-merge": "^5.8.0"
   }

@@ -3,14 +3,7 @@ import { NavButton } from '../nav-button/NavButton';
 import map from 'lodash/map';
 import { ButtonProps } from '../../types/Search';
 
-export const NavBar = ({
-  isStory = false,
-  backgroundColor,
-  label,
-  isDemo,
-  ...props
-}: ButtonProps) => {
-
+export const NavBar = ({ isStory = false, children, isDemo, ...props }: ButtonProps) => {
   const itemsMenu = [
     {
       href: '/comedy',
@@ -36,13 +29,15 @@ export const NavBar = ({
         label={isStory ? 'Category' : item.name}
         linkTo={isStory ? '' : item.href}
         isDemo={isDemo}
-        {...props} />
+        {...props}
+      />
     );
   });
 
   return (
-    <div className='flex overflow-x-auto overflow-scroll justify-center'>
+    <div className="flex overflow-x-auto overflow-scroll justify-center">
       {Items}
+      {children}
     </div>
-  )
-};  
+  );
+};

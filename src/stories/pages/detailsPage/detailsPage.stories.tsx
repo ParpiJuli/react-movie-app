@@ -6,13 +6,13 @@ export default {
   title: 'Pages/DetailsPage',
   component: DetailsPage,
   parameters: {
-    layout: 'fullscreen',
-  },
+    layout: 'fullscreen'
+  }
 } as ComponentMeta<typeof DetailsPage>;
 
 const Template: ComponentStory<typeof DetailsPage> = (args) => <DetailsPage {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  isDemo: true,
+  isDemo: true
 };

@@ -1,4 +1,4 @@
 export interface RouterErrorType {
-  statusText: string
-  message: string,
-};
+  statusText: string;
+  message: string;
+}
