@@ -8,7 +8,6 @@ export interface SearchResultsType {
 }
 
 export interface ButtonProps {
-  isStory?: boolean;
   backgroundColor?: string;
   label?: string;
   children?: any;

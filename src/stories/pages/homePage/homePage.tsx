@@ -18,7 +18,7 @@ export const HomePage: React.VFC = ({ isDemo = false }: { isDemo: boolean }) => 
   const renderPage = (movies) => (
     <PageLayout isDemo={isDemo}>
       <div className="my-36">
-        <NavBar label={''} isDemo={isDemo}>
+        <NavBar isDemo={isDemo}>
           <SearchBar
             handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setFilterValue(e?.target?.value)
