@@ -1,13 +1,7 @@
 import React from 'react';
 import { NavButton } from '../nav-button/NavButton';
 import map from 'lodash/map';
-
-interface ButtonProps {
-  isStory?: boolean;
-  backgroundColor?: string;
-  label: string;
-  onClick?: () => void;
-}
+import { ButtonProps } from '../../types/Search';
 
 export const NavBar = ({
   isStory = false,

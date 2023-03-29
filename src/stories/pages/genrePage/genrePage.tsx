@@ -1,5 +1,5 @@
 import React from 'react';
-import { MovieCardContainer } from '../../movie/moviesContainer/moviesCardContainer';
+import { MoviesCardContainer } from '../../movie/moviesContainer/moviesCardContainer';
 import { NavBar } from '../../nav-bar/NavBar';
 import PageLayout from '../pageLayout';
 import { mockResponse } from '../../../utils/mockResponse';
@@ -13,7 +13,7 @@ export const GenrePage: React.VFC = ({isDemo=true}: any) => {
     <PageLayout>
       <div className='my-20'>
         <Title label={'Films by genre'} primary={false}/>
-        <MovieCardContainer movies={movies} />
+        <MoviesCardContainer movies={movies} />
       </div>
     </PageLayout>
   );

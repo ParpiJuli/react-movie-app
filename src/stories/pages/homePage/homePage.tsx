@@ -1,5 +1,5 @@
 import React from 'react';
-import { MovieCardContainer } from '../../movie/moviesContainer/moviesCardContainer';
+import { MoviesCardContainer } from '../../movie/moviesContainer/moviesCardContainer';
 import { NavBar } from '../../nav-bar/NavBar';
 import PageLayout from '../pageLayout';
 import { mockResponse } from '../../../utils/mockResponse';
@@ -16,7 +16,7 @@ export const HomePage: React.VFC = ({isDemo=true}: any) => {
         <NavBar label={''} />
         <div className='my-10'>
           <Title label={'Most Popular'} primary={false}/>
-          <MovieCardContainer movies={movies} />
+          <MoviesCardContainer movies={movies} />
         </div>
       </div>
     </PageLayout>

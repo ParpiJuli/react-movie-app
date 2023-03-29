@@ -7,10 +7,3 @@ export interface SearchResultsType {
   total_results: number
 };
 
-export interface ButtonProps {
-  isStory?: boolean;
-  backgroundColor?: string;
-  label?: string;
-  type?: string;
-  onClick?: () => void;
-}

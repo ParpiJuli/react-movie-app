@@ -9,14 +9,14 @@ import { useQuery } from 'react-query';
 import { fetchPopularMovies } from '../../../services/fetchMoviesServices';
 import { QueryResponseType } from '../../../types/Queries';
 
-interface MovieCardContainerProps {
+interface MoviesCardContainerProps {
   movies: MovieType[];
 }
 
-export const MovieCardContainer = ({
+export const MoviesCardContainer = ({
   movies,
   ...props
-}: MovieCardContainerProps) => {
+}: MoviesCardContainerProps) => {
 
   const containerClass = `
     flex 
