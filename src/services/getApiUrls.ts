@@ -22,11 +22,11 @@ export const getMoviePoster = (posterPath: string) => {
 };
 
 export const getMoviesByReleaseYear = (searchYear: string | number) => {
-  return `${discoverMovieApi}release_date.lte=${searchYear}`;
+  return `${discoverMovieApi}&release_date.lte=${searchYear}`;
 };
 
 export const getMoviesByGenderApiUrl = (genreId: number | string) => {
-  return `${discoverMovieApi}with_genres=${genreId}`;
+  return `${discoverMovieApi}&with_genres=${genreId}`;
 };
 
 export const getMoviesByRateApiUrl = (rate: number) => {

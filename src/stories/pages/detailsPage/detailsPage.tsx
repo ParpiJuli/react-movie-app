@@ -15,7 +15,7 @@ import { Title } from '../../title/Title';
 import { useParams } from 'react-router-dom';
 
 export const DetailsPage: React.VFC = ({isDemo=false}: any) => {
-  const renderPage = (movie, movies) => (
+  const renderPage = (movie, movies, genre?) => (
     <PageLayout>
       <div className='my-20'>
         <MovieCard 
@@ -31,7 +31,7 @@ export const DetailsPage: React.VFC = ({isDemo=false}: any) => {
           voteCount={movie.vote_count}
         />
         <div className='my-5 md:mt-20'>
-          <Title label={'Other related films'} />
+          <Title label={`${genre ? `${genre} films` : 'Related films'}`} />
           <MoviesCardContainer movies={movies} isDemo={isDemo}/>
         </div>
       </div>
@@ -67,6 +67,6 @@ export const DetailsPage: React.VFC = ({isDemo=false}: any) => {
     return <span>Error: {error?.message}</span>;
   }
 
-  return renderPage(data, suggestedMovies?.results)
+  return renderPage(data, suggestedMovies?.results, data?.genres[0].name)
 }
 

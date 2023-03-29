@@ -11,10 +11,10 @@ import { Title } from '../../title/Title';
 import { useParams } from 'react-router-dom';
 
 export const GenrePage: React.VFC = ({isDemo=false}: {isDemo: boolean}) => {
-  const renderPage = (movies) => (
+  const renderPage = (movies, genre?) => (
     <PageLayout>
       <div className='my-20'>
-        <Title label={'Films by genre'} primary={false}/>
+        <Title label={`${genre ? `${genre} films` : 'Films by genre'}`} primary={false}/>
         <MoviesCardContainer movies={movies} isDemo={isDemo} />
       </div>
     </PageLayout>
@@ -52,6 +52,6 @@ export const GenrePage: React.VFC = ({isDemo=false}: {isDemo: boolean}) => {
     return <span>Error: {error?.message}</span>;
   }
 
-  return renderPage(data.results)
+  return renderPage(data.results, currentGenre?.name)
 }
 

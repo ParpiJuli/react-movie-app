@@ -7,6 +7,7 @@ export const NavBar = ({
   isStory = false,
   backgroundColor,
   label,
+  children,
   isDemo,
   ...props
 }: ButtonProps) => {
@@ -43,6 +44,7 @@ export const NavBar = ({
   return (
     <div className='flex overflow-x-auto overflow-scroll justify-center'>
       {Items}
+      {children}
     </div>
   )
 };  

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PageLayout from '../pageLayout';
 import { fetchPopularMovies } from '../../../services/fetchMoviesServices';
 import { MoviesCardContainer } from '../../movie/moviesContainer/moviesCardContainer';
@@ -7,12 +7,21 @@ import { NavBar } from '../../nav-bar/NavBar';
 import { useQuery } from 'react-query';
 import { QueryResponseType } from '../../../types/Queries';
 import { Title } from '../../title/Title';
+import { useFilterResultsByName, useFilterResultsByYear } from '../../../hooks/useFilters';
+import SearchBar from '../../search/searchBar';
 
 export const HomePage: React.VFC = ({isDemo=false}: {isDemo: boolean}) => {
+  const [filterValue, setFilterValue] = useState<string>('');
+  const { data: moviesByName } = useFilterResultsByName(filterValue);
+
   const renderPage = (movies) => (
     <PageLayout displayImage={true}>
-      <div className='my-5'>
-        <NavBar label={''} />
+      <div className='my-48'>
+        <NavBar label={''}>
+          <SearchBar
+            handleChange={(e: React.ChangeEvent<HTMLInputElement>) => setFilterValue(e?.target?.value)}
+          />
+        </NavBar>
         <div className='my-10'>
           <Title label={'Most Popular'} primary={false}/>
           <MoviesCardContainer movies={movies} isDemo={isDemo}/>
@@ -25,7 +34,7 @@ export const HomePage: React.VFC = ({isDemo=false}: {isDemo: boolean}) => {
     return renderPage(mockResponse)
   }
 
-  const { isLoading, isError, data, error }: QueryResponseType =
+  const { isLoading, isError, data: popularFilms, error }: QueryResponseType =
   useQuery({
       queryKey: ['movies', 'popular'],
       queryFn: ({ queryKey }) => fetchPopularMovies(queryKey[1]),
@@ -39,6 +48,8 @@ export const HomePage: React.VFC = ({isDemo=false}: {isDemo: boolean}) => {
     return <span>Error: {error?.message}</span>;
   }
 
-  return renderPage(data.results)
+  const moviesToDisplay = moviesByName?.total_results > 0 ? moviesByName?.results : popularFilms?.results
+
+  return renderPage(moviesToDisplay)
 }
 
