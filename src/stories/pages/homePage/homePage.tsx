@@ -1,17 +1,16 @@
 import React from 'react';
-import { MoviesCardContainer } from '../../movie/moviesContainer/moviesCardContainer';
-import { NavBar } from '../../nav-bar/NavBar';
 import PageLayout from '../pageLayout';
+import { fetchPopularMovies } from '../../../services/fetchMoviesServices';
+import { MoviesCardContainer } from '../../movie/moviesContainer/moviesCardContainer';
 import { mockResponse } from '../../../utils/mockResponse';
+import { NavBar } from '../../nav-bar/NavBar';
 import { useQuery } from 'react-query';
 import { QueryResponseType } from '../../../types/Queries';
-import { fetchPopularMovies } from '../../../services/fetchMoviesServices';
 import { Title } from '../../title/Title';
 
-export const HomePage: React.VFC = ({isDemo=false}: any) => {
+export const HomePage: React.VFC = ({isDemo=false}: {isDemo: boolean}) => {
   const renderPage = (movies) => (
     <PageLayout displayImage={true}>
-      hey
       <div className='my-5'>
         <NavBar label={''} />
         <div className='my-10'>

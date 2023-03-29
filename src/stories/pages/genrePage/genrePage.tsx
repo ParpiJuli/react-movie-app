@@ -1,14 +1,16 @@
 import React from 'react';
-import { MoviesCardContainer } from '../../movie/moviesContainer/moviesCardContainer';
-import { NavBar } from '../../nav-bar/NavBar';
+import find from 'lodash/find'
 import PageLayout from '../pageLayout';
+import { fetchAllGenres, fetchMoviesByGenre } from '../../../services/fetchMoviesServices';
+import { GenreType } from '../../../types/Movies';
+import { MoviesCardContainer } from '../../movie/moviesContainer/moviesCardContainer';
 import { mockResponse } from '../../../utils/mockResponse';
-import { QueryClient, useQuery } from 'react-query';
+import { useQuery } from 'react-query';
 import { QueryResponseType } from '../../../types/Queries';
-import { fetchPopularMovies } from '../../../services/fetchMoviesServices';
 import { Title } from '../../title/Title';
+import { useParams } from 'react-router-dom';
 
-export const GenrePage: React.VFC = ({isDemo=false}: any) => {
+export const GenrePage: React.VFC = ({isDemo=false}: {isDemo: boolean}) => {
   const renderPage = (movies) => (
     <PageLayout>
       <div className='my-20'>
@@ -22,10 +24,24 @@ export const GenrePage: React.VFC = ({isDemo=false}: any) => {
     return renderPage(mockResponse)
   }
 
+  const params = useParams();
+  const { genre } = params;
+
+  const { data: allGenres }: QueryResponseType = useQuery({
+    queryKey: ['currentGenre'],
+    queryFn: () => fetchAllGenres(),
+  });
+
+  const getSelectedGenre = (genres: GenreType[]) => {
+    return find(genres, (item) => item.name.toUpperCase() === genre?.toUpperCase());
+  };
+  
+  const currentGenre = getSelectedGenre(allGenres?.genres);
+
   const { isLoading, isError, data, error }: QueryResponseType =
-  useQuery({
-      queryKey: ['movies', 'popular'],
-      queryFn: ({ queryKey }) => fetchPopularMovies(queryKey[1]),
+    useQuery({
+      queryKey: ['movies', currentGenre?.id.toString()],
+      queryFn: ({ queryKey }) => fetchMoviesByGenre(queryKey[1]),
     });
 
   if (isLoading) {

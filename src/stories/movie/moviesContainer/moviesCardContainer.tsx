@@ -45,9 +45,9 @@ export const MoviesCardContainer = ({
       <Link key={key} to={`/movies/${item.id}`}>
           <MovieCard
             moviePoster={getMoviePoster(item.poster_path)}
-            altText={item.title}
-            title={item.title}
-            description={item.overview}
+            altText={''}
+            title={''}
+            description={''}
           />
       </Link>
     ))

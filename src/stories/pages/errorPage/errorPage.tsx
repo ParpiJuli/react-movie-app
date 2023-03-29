@@ -3,7 +3,7 @@ import React from 'react';
 import { useRouteError } from 'react-router-dom';
 import { RouterErrorType } from '../../../types/Router';
 
-export const ErrorPage = ({errorMessage, isDemo=true}: any) => {
+export const ErrorPage = ({errorMessage, isDemo=false}: any) => {
   const errorContainerStyles = `
   py-20
   !bg-light-blue

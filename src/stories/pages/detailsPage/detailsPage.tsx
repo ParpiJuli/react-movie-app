@@ -1,18 +1,18 @@
 import React from 'react';
-import { MoviesCardContainer } from '../../movie/moviesContainer/moviesCardContainer';
-import PageLayout from '../pageLayout';
-import { mockResponse } from '../../../utils/mockResponse';
-import { useQuery } from 'react-query';
-import { QueryResponseType } from '../../../types/Queries';
-import { fetchMovieById, fetchPopularMovies } from '../../../services/fetchMoviesServices';
-import { Title } from '../../title/Title';
+import isNil from 'lodash/isNil'
 import MovieCard from '../../movie/movieCard/movieCard';
+import PageLayout from '../pageLayout';
+import { fetchMovieById, fetchMoviesByGenre } from '../../../services/fetchMoviesServices';
 import { getMoviePoster } from '../../../services/getApiUrls';
 import { getReleaseYear } from '../../../utils/getReleaseYear';
 import { getGenresName } from '../../../utils/getGenresName';
 import { getAverage } from '../../../utils/getAverage';
+import { MoviesCardContainer } from '../../movie/moviesContainer/moviesCardContainer';
+import { mockResponse } from '../../../utils/mockResponse';
+import { useQuery } from 'react-query';
+import { QueryResponseType } from '../../../types/Queries';
+import { Title } from '../../title/Title';
 import { useParams } from 'react-router-dom';
-import isNil from 'lodash/isNil'
 
 export const DetailsPage: React.VFC = ({isDemo=false}: any) => {
   const renderPage = (movie, movies) => (
@@ -45,24 +45,28 @@ export const DetailsPage: React.VFC = ({isDemo=false}: any) => {
   const params = useParams();
   const { id } = params;
 
-  if(isNil(id)) {
-    return <div />; // ver
-  }
-
   const { isLoading, isError, data, error }: QueryResponseType =
   useQuery({
-    queryKey: ['currentMovie', id],
+    queryKey: ['currentMovie', id || ''],
     queryFn: ({ queryKey }) => fetchMovieById(queryKey[1]),
+  });
+
+  const suggestedMoviesByGenre = data?.genres?.length ? data?.genres[0].id.toString() : 'popular' ;
+  
+  const { data: suggestedMovies }: QueryResponseType =
+  useQuery({
+    queryKey: ['currentMovie', suggestedMoviesByGenre],
+    queryFn: ({ queryKey }) => fetchMoviesByGenre(queryKey[1]),
   });
 
   if (isLoading) {
     return <p>Loading...</p>;
   }
 
-  if (isError || !id) {
+  if (isError || !id || isNil(data)) {
     return <span>Error: {error?.message}</span>;
   }
 
-  return renderPage(data, [])
+  return renderPage(data, suggestedMovies?.results)
 }
 

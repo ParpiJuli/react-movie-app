@@ -17,8 +17,8 @@ export const fetchMovieById = async(id: number | string) => {
   return response.json();
 };
 
-export const fetchMoviesByGenre = async(genreId: number | string) => {
-  const response = await fetch(getMoviesByGenderApiUrl(genreId));
+export const fetchMoviesByGenre = async(genreId?: number | string) => {
+  const response = await fetch(getMoviesByGenderApiUrl(genreId || ''));
   return response.json();
 };
 
