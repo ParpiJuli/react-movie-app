@@ -1,5 +1,9 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import App from './components/App';
+import ReactDOM from 'react-dom/client';
+import App from "./components/App";
+import './tailwind-input.css';
 
-ReactDOM.render(<App message='world' />, document.getElementById('root'));
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+root.render(<App />)

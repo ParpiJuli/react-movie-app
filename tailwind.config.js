@@ -25,12 +25,13 @@ module.exports = {
       'gray-dark': '#273444',
       'gray': '#8492a6',
       'gray-light': '#d3dce6',
-      'neutral': '#DFD2BC',
+      'neutral': '#FFF8ED',
       'dark-blue': '#254674',
       'red': '#E55749',
       'light-blue': '#85ffff'
     },
     fontFamily: {
+      roboto: ['Roboto', 'sans-serif'],
       sans: ['Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
     },

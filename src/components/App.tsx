@@ -1,15 +1,22 @@
-import React from "react";
+import React from 'react';
+import {BrowserRouter, BrowserRouter as Router, HashRouter, Route, Routes} from 'react-router-dom';
+import { QueryClientProvider, QueryClient } from 'react-query';
+import { HomePage } from '../stories/pages/homePage/homePage';
+import { GenrePage } from '../stories/pages/genrePage/genrePage';
+import { DetailsPage } from '../stories/pages/detailsPage/detailsPage';
+import '../../src/tailwind-input.css';
 
-interface App {
-  message? : string;
+export default function App() {
+  const queryClient = new QueryClient;
+  	return (
+      <QueryClientProvider client={queryClient}>
+        <HashRouter>
+            <Routes>
+              <Route path="/" Component={HomePage} />
+              <Route path="/:genre" Component={GenrePage} />
+              <Route path="/movies/:id" Component={DetailsPage} />
+            </Routes>
+        </HashRouter>
+      </QueryClientProvider>
+  	);
 }
-
-const App = ({message}) => {
-  return (
-    <div>
-      <p>Hey! {message}</p>
-    </div>
-  )
-}
-
-export default App;
