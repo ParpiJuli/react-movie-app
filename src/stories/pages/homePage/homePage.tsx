@@ -11,6 +11,7 @@ import { Title } from '../../title/Title';
 export const HomePage: React.VFC = ({isDemo=true}: any) => {
   const renderPage = (movies) => (
     <PageLayout displayImage={true}>
+      hey
       <div className='my-5'>
         <NavBar label={''} />
         <div className='my-10'>

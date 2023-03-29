@@ -1,3 +1,5 @@
+const process = require('process')
+
 const API_KEY = process.env.REACT_APP_API_URL;
 const baseAPi = 'https://api.themoviedb.org/3';
 const baseImageApi = 'http://image.tmdb.org/t/p/w500';

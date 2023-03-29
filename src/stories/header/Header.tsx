@@ -1,7 +1,4 @@
-import React from 'react';
-
-import { Button } from '../button/Button';
-import { NavButton } from '../nav-button/NavButton';
+import React from 'react';  
 
 interface HeaderProps {
   title: string;

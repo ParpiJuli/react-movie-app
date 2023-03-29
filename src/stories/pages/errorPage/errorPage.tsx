@@ -1,5 +1,5 @@
 import React from 'react';
-import sadPopcorn from '../../assets/sadPopcorn.jpg'
+// import sadPopcorn from '../../assets/sadPopcorn.jpg'
 import { useRouteError } from 'react-router-dom';
 import { RouterErrorType } from '../../../types/Router';
 
@@ -16,7 +16,7 @@ export const ErrorPage = ({errorMessage, isDemo=true}: any) => {
     <section id="error-page">
       <h1 className={errorContainerStyles}>Oops!</h1>
       <p className='text-3xl flex m-auto'>{message}</p>
-      <img src={sadPopcorn} alt="error-image" className='text-3xl flex m-auto'/>
+      <img src={''} alt="error-image" className='text-3xl flex m-auto'/>
       {
         showError && (
           <p>

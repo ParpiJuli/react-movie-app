@@ -36,7 +36,7 @@ export const NavBar = ({
   ];
   const Items = map(itemsMenu, (item, index) => {
     return (
-      <NavButton label={isStory ? 'Category' : item.name} linkTo={isStory ? '' : item.href} {...props} />
+      <NavButton key={index} label={isStory ? 'Category' : item.name} linkTo={isStory ? '' : item.href} {...props} />
     );
   });
 

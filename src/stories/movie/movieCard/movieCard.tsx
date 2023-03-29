@@ -39,7 +39,7 @@ export const MovieCard = ({
   return (
     <div className={containerClass}>
       <img
-        className='rounded-xl flex m-auto w-[230px] h-[300px]'
+        className='rounded-xl flex m-auto md:mx-0 w-[230px] h-[300px]'
         src={moviePoster}
         alt={altText}
         {...props}
