@@ -1,4 +1,4 @@
-# Getting Started with Movie App
+# Getting Started with React Movie App
 
 This project was developed by Julieta Parpinelli using ReactJS created with Webpack, Tailwind, Loadash, ESLint, Prettier React Router and Yarn, as package manager.
 
