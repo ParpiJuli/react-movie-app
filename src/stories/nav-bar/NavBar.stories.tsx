@@ -15,4 +15,5 @@ export const Primary = Template.bind({});
 Primary.args = {
   label: 'NavBar',
   isStory: true,
+  isDemo: true,
 };

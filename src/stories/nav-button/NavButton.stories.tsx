@@ -14,4 +14,5 @@ const Template: ComponentStory<typeof NavButton> = (args) => <NavButton {...args
 export const Primary = Template.bind({});
 Primary.args = {
   label: 'NavButton',
+  isDemo: true,
 };

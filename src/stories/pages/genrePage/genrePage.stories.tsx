@@ -13,3 +13,6 @@ export default {
 const Template: ComponentStory<typeof GenrePage> = (args) => <GenrePage {...args} />;
 
 export const Primary = Template.bind({});
+Primary.args = {
+  isDemo: true,
+};

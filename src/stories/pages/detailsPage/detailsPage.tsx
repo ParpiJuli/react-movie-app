@@ -14,7 +14,7 @@ import { getAverage } from '../../../utils/getAverage';
 import { useParams } from 'react-router-dom';
 import isNil from 'lodash/isNil'
 
-export const DetailsPage: React.VFC = ({isDemo=true}: any) => {
+export const DetailsPage: React.VFC = ({isDemo=false}: any) => {
   const renderPage = (movie, movies) => (
     <PageLayout>
       <div className='my-20'>
@@ -32,7 +32,7 @@ export const DetailsPage: React.VFC = ({isDemo=true}: any) => {
         />
         <div className='my-5 md:mt-20'>
           <Title label={'Other related films'} />
-          <MoviesCardContainer movies={movies} />
+          <MoviesCardContainer movies={movies} isDemo={isDemo}/>
         </div>
       </div>
     </PageLayout>

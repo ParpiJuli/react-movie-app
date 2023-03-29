@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { MovieDetails, MovieDetailsProps } from '../movieDetails/movieDetails';
 import map from 'lodash/map'
 import MovieCard from '../movieCard/movieCard';
@@ -11,13 +11,14 @@ import { QueryResponseType } from '../../../types/Queries';
 
 interface MoviesCardContainerProps {
   movies: MovieType[];
+  isDemo?: boolean;
 }
 
 export const MoviesCardContainer = ({
   movies,
+  isDemo,
   ...props
 }: MoviesCardContainerProps) => {
-
   const containerClass = `
     flex 
     flex-auto
@@ -27,10 +28,28 @@ export const MoviesCardContainer = ({
   `;
 
   const getCards = (movies: MovieType[]) => {
+    if(isDemo) {
+      return map(movies, (item, key) => (
+        <a key={key} href={`/movies/${item.id}`}>
+            <MovieCard
+              moviePoster={getMoviePoster(item.poster_path)}
+              altText={''}
+              title={''}
+              description={''}
+            />
+        </a>
+      ))
+    }
+
     return map(movies, (item, key) => (
-      <a key={key} href={`/movies/${item.id}`}>
-          <MovieCard moviePoster={getMoviePoster(item.poster_path)} altText={''} title={''} description={''}/>
-      </a>
+      <Link key={key} to={`/movies/${item.id}`}>
+          <MovieCard
+            moviePoster={getMoviePoster(item.poster_path)}
+            altText={item.title}
+            title={item.title}
+            description={item.overview}
+          />
+      </Link>
     ))
   };
 

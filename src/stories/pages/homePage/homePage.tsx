@@ -8,7 +8,7 @@ import { QueryResponseType } from '../../../types/Queries';
 import { fetchPopularMovies } from '../../../services/fetchMoviesServices';
 import { Title } from '../../title/Title';
 
-export const HomePage: React.VFC = ({isDemo=true}: any) => {
+export const HomePage: React.VFC = ({isDemo=false}: any) => {
   const renderPage = (movies) => (
     <PageLayout displayImage={true}>
       hey
@@ -16,7 +16,7 @@ export const HomePage: React.VFC = ({isDemo=true}: any) => {
         <NavBar label={''} />
         <div className='my-10'>
           <Title label={'Most Popular'} primary={false}/>
-          <MoviesCardContainer movies={movies} />
+          <MoviesCardContainer movies={movies} isDemo={isDemo}/>
         </div>
       </div>
     </PageLayout>

@@ -8,12 +8,12 @@ import { QueryResponseType } from '../../../types/Queries';
 import { fetchPopularMovies } from '../../../services/fetchMoviesServices';
 import { Title } from '../../title/Title';
 
-export const GenrePage: React.VFC = ({isDemo=true}: any) => {
+export const GenrePage: React.VFC = ({isDemo=false}: any) => {
   const renderPage = (movies) => (
     <PageLayout>
       <div className='my-20'>
         <Title label={'Films by genre'} primary={false}/>
-        <MoviesCardContainer movies={movies} />
+        <MoviesCardContainer movies={movies} isDemo={isDemo} />
       </div>
     </PageLayout>
   );

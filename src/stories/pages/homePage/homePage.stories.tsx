@@ -13,3 +13,6 @@ export default {
 const Template: ComponentStory<typeof HomePage> = (args) => <HomePage {...args} />;
 
 export const Primary = Template.bind({});
+Primary.args = {
+  isDemo: true,
+};

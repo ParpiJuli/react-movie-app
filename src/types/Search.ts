@@ -11,6 +11,6 @@ export interface ButtonProps {
   isStory?: boolean;
   backgroundColor?: string;
   label?: string;
-  type?: string;
+  isDemo?: boolean;
   onClick?: () => void;
 }
